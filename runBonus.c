@@ -1,7 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+void allocate10(int[] a){
+	a = malloc(10 * sizeof(int));
+	for(int i = 0; i < 10; i++){
+		a[i] = i;
+	} 
+}
+void joinStrings(char * b, char * c, char * d){
+	d = malloc(sizeof*(b) + sizeof(*c));
+	b = realloc(sizeof(*b) + sizeof(*c));
+	strcat(b, *c);
+	strcat(d, *b); 
+}
 int main(){
 	int *a;
 	char *b="Hello ";
@@ -13,7 +24,8 @@ int main(){
 	int sizes[2];
 	int e[4][3]={{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
 	int **f;
- int **g;
+	int **g;
+ 
 	
 	 //*******************************************************
 	//1 mark
@@ -26,7 +38,8 @@ int main(){
 	//in the main function
  //free the memory in a
  //*******************************************************
-
+	allocate10(a);
+	free(a);
  //*******************************************************
  //1 mark 
  //Write a function "joinStrings" takes as parameters 3 strings. It joins the first 2 together and puts the result in the third string
@@ -36,6 +49,8 @@ int main(){
  //after calling the function using b,c,d as parameters print out d from the main function
  //free the memory in d
  //*******************************************************
+ joinStrings(b,c,d);
+ free(d);
 
  //*******************************************************
  //1 mark
@@ -43,7 +58,8 @@ int main(){
  //the function "arrayWrite" writes the values of the the array (starting from array[0][0] and ending at array[size-1][2]) to the binaryFilename
  //apply the function to array e and file1
  //*******************************************************
-
+FILE *fp = fopen("input.bin", "w");
+arrayWrite(e, sizeof(*e), char * c, *fp);
 
  //******************************************************* 
  //1 mark
@@ -58,7 +74,9 @@ int main(){
  //run the function with parameters e,file1, file2
  //so at the end of this there should be two new files
   //*******************************************************
-
+FILE fileone;
+FILE filetwo;
+binaryIO(e, fileone, filetwo);
  //******************************************************* 
  //2 marks
  //malloc and assign memory for	f as a pointer to pointers to integer style array of the same size as e
