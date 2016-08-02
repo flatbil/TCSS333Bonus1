@@ -13,6 +13,12 @@ void joinStrings(char * b, char * c, char * d){
 	strcat(b, *c);
 	strcat(d, *b); 
 }
+void arrayWrite(int e[][], int size,  ){
+	
+}
+void binaryIO(){
+	
+}
 int main(){
 	int *a;
 	char *b="Hello ";
