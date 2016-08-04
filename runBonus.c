@@ -13,7 +13,8 @@ void joinStrings(char * b, char * c, char * d){
 	strcat(b, *c);
 	strcat(d, *b); 
 }
-void arrayWrite(int e[][], int size,  ){
+void arrayWrite(int e[][], int size, char *c, FILE *fp){
+	fp = fopen(fp, "w");
 	
 }
 void binaryIO(){
@@ -64,8 +65,8 @@ int main(){
  //the function "arrayWrite" writes the values of the the array (starting from array[0][0] and ending at array[size-1][2]) to the binaryFilename
  //apply the function to array e and file1
  //*******************************************************
-FILE *fp = fopen("input.bin", "w");
-arrayWrite(e, sizeof(*e), char * c, *fp);
+
+arrayWrite(e, sizeof(*e), c, file1);
 
  //******************************************************* 
  //1 mark
